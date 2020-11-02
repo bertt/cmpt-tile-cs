@@ -4,7 +4,11 @@ Library for reading/writing composite 3D Tiles (cmpt)
 
 Specs: https://github.com/CesiumGS/3d-tiles/blob/master/specification/TileFormats/Composite/README.md
 
-## Reading - sample code
+## NuGet
+
+https://www.nuget.org/packages/cmpt-tile/
+
+## Reading - sample code of reading composite tile containing batched and instanced model.
 
 ```
 var cmpt = CmptReader.Read(cmptfile);

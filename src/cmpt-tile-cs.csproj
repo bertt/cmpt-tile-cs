@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="b3dm-tile" Version="0.13.0" />
-    <PackageReference Include="i3dm.tile" Version="0.4.1" />
+    <PackageReference Include="i3dm.tile" Version="0.4.2" />
   </ItemGroup>
 
 </Project>
