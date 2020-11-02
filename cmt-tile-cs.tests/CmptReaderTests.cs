@@ -14,6 +14,7 @@ namespace Cmpt.Tile.Tests
         public void ReadFirstCompositeTest()
         {
             // arrange
+            // source: https://github.com/CesiumGS/cesium/tree/master/Specs/Data/Cesium3DTiles/Composite/Composite
             var cmptfile = File.OpenRead(@"testfixtures/composite.cmpt");
             Assert.IsTrue(cmptfile != null);
 
