@@ -3,6 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Cmpt.Tile</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1</Version>
+    <Authors>Bert Temme</Authors>
+    <Description>Reading/Writing composite 3D Tiles</Description>
+    <Copyright>Bert Temme</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/bertt/cmpt-tile-cs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>initial version</PackageReleaseNotes>
+    <Product>cmpt-tile</Product>
+    <PackageProjectUrl>https://github.com/bertt/cmpt-tile-cs</PackageProjectUrl>
+    <AssemblyName>cmpt-tile</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="b3dm-tile" Version="0.13.0" />
+    <PackageReference Include="i3dm.tile" Version="0.4.1" />
+  </ItemGroup>
 
 </Project>
