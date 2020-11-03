@@ -1,3 +1,4 @@
+using B3dm.Tile;
 using I3dm.Tile;
 using NUnit.Framework;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Cmpt.Tile.Tests
             var cmptfile = File.OpenRead(@"testfixtures/composite.cmpt");
             Assert.IsTrue(cmptfile != null);
 
-            // act
+            // act. This cmpt contains a batched model and an instanced model
             var cmpt = CmptReader.Read(cmptfile);
 
             // assert
@@ -31,6 +32,11 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.Tiles.Count() == 2);
             Assert.IsTrue(cmpt.Magics.ToArray()[0] == "b3dm");
             Assert.IsTrue(cmpt.Magics.ToArray()[1] == "i3dm");
+
+            var b3dm = B3dmReader.ReadB3dm(new MemoryStream(cmpt.Tiles.ToArray()[0]));
+            Assert.IsTrue(b3dm.FeatureTableJson == "{\"BATCH_LENGTH\":10,\"RTC_CENTER\":[1215012.8988049095,-4736313.0423059845,4081604.3368623317]}");
+            Assert.IsTrue(b3dm.GlbData != null);
+
 
             var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.ToArray()[1]));
             Assert.IsTrue(i3dm.Positions.Count == 25);
