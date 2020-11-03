@@ -25,6 +25,10 @@ Assert.IsTrue(i3dm.Positions.Count == 25);
 
 ```
 var tileBytes= I3dmWriter.Write(i3dm);
+var tiles = new List<byte[]>();
+tiles.Add(tileBytes);
+var cmptBytes = CmptWriter.Write(tiles);
+
 ```
 
 ## History
