@@ -16,8 +16,8 @@ https://www.nuget.org/packages/cmpt-tile/
 var cmpt = CmptReader.Read(cmptfile);
 Assert.IsTrue(cmpt.CmptHeader.TilesLength == 2);
 Assert.IsTrue(cmpt.Tiles.Count == 2);
-Assert.IsTrue(cmpt.Magics[1] == "b3dm");
-Assert.IsTrue(cmpt.Magics[1] == "i3dm");
+Assert.IsTrue(cmpt.Magics.ToArray()[0] == "b3dm");
+Assert.IsTrue(cmpt.Magics.ToArray()[1] == "i3dm");
 var b3dm = B3dmReader.ReadB3dm(new MemoryStream(cmpt.Tiles.ToArray()[0]));
 var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.ToArray()[1]));
 Assert.IsTrue(i3dm.Positions.Count == 25);
