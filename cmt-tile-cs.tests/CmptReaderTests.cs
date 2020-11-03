@@ -32,7 +32,7 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.Magics.ToArray()[0] == "b3dm");
             Assert.IsTrue(cmpt.Magics.ToArray()[1] == "i3dm");
 
-            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.First()));
+            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.ToArray()[1]));
             Assert.IsTrue(i3dm.Positions.Count == 25);
         }
 
