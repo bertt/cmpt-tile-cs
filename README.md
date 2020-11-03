@@ -8,7 +8,9 @@ Specs: https://github.com/CesiumGS/3d-tiles/blob/master/specification/TileFormat
 
 https://www.nuget.org/packages/cmpt-tile/
 
-## Reading - sample code of reading composite tile containing batched and instanced model.
+## Sample code
+
+1] sample code of reading composite tile containing batched and instanced model.
 
 ```
 var cmpt = CmptReader.Read(cmptfile);
@@ -18,7 +20,7 @@ Assert.IsTrue(cmpt.InstancedTiles[0].Positions.Count == 25);
 Assert.IsTrue(cmpt.BatchedTiles.Count == 1);
 ```
 
-## Writing - sample code
+2] Writing - sample code
 
 todo
 
