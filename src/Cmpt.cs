@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Cmpt.Tile
 {
@@ -7,9 +6,8 @@ namespace Cmpt.Tile
     {
         public CmptHeader CmptHeader { get; set; }
 
-        public List<I3dm.Tile.I3dm> InstancedTiles { get; set; }
-        public List<B3dm.Tile.B3dm> BatchedTiles { get; set; }
+        public List<byte[]> Tiles { get; set; }
 
-
+        public List<string> Magics { get; set; }
     }
 }
