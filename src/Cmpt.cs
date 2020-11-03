@@ -6,8 +6,8 @@ namespace Cmpt.Tile
     {
         public CmptHeader CmptHeader { get; set; }
 
-        public List<byte[]> Tiles { get; set; }
+        public IEnumerable<byte[]> Tiles { get; set; }
 
-        public List<string> Magics { get; set; }
+        public IEnumerable<string> Magics { get; set; }
     }
 }

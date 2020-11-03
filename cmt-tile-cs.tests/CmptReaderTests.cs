@@ -1,6 +1,7 @@
 using I3dm.Tile;
 using NUnit.Framework;
 using System.IO;
+using System.Linq;
 
 namespace Cmpt.Tile.Tests
 {
@@ -27,11 +28,11 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.CmptHeader.Version == expectedVersionHeader);
             Assert.IsTrue(cmpt.CmptHeader.ByteLength == 13472); // The length of the entire Composite tile, including this header and each inner tile, in bytes.
             Assert.IsTrue(cmpt.CmptHeader.TilesLength == 2);
-            Assert.IsTrue(cmpt.Tiles.Count == 2);
-            Assert.IsTrue(cmpt.Magics[0] == "b3dm");
-            Assert.IsTrue(cmpt.Magics[1] == "i3dm");
+            Assert.IsTrue(cmpt.Tiles.Count() == 2);
+            Assert.IsTrue(cmpt.Magics.ToArray()[0] == "b3dm");
+            Assert.IsTrue(cmpt.Magics.ToArray()[1] == "i3dm");
 
-            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles[1]));
+            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.First()));
             Assert.IsTrue(i3dm.Positions.Count == 25);
         }
 
@@ -47,7 +48,7 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.CmptHeader.Version == expectedVersionHeader);
             Assert.IsTrue(cmpt.CmptHeader.TilesLength== 2);
 
-            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles[0]));
+            var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.First()));
             Assert.IsTrue(i3dm.Positions.Count == 25);
         }
     }

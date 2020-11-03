@@ -17,7 +17,7 @@ var cmpt = CmptReader.Read(cmptfile);
 Assert.IsTrue(cmpt.CmptHeader.TilesLength == 2);
 Assert.IsTrue(cmpt.Tiles.Count == 2);
 Assert.IsTrue(cmpt.Magics[1] == "i3dm");
-var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles[1]));
+var i3dm = I3dmReader.Read(new MemoryStream(cmpt.Tiles.First()));
 Assert.IsTrue(i3dm.Positions.Count == 25);
 ```
 
