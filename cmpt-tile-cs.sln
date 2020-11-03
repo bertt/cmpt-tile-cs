@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cmpt-tile-cs", "src\cmpt-tile-cs.csproj", "{EFD13072-3502-4DA0-9241-6140B076B98A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cmt-tile-cs.tests", "cmt-tile-cs.tests\cmt-tile-cs.tests.csproj", "{03D13631-1C4C-42B1-8F52-03DDF1B4682A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cmt-tile-cs.tests", "cmpt-tile-cs.tests\cmt-tile-cs.tests.csproj", "{03D13631-1C4C-42B1-8F52-03DDF1B4682A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2A2C3BAC-CA09-4DC9-8343-94BE765C82C1}"
 	ProjectSection(SolutionItems) = preProject
