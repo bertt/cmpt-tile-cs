@@ -13,6 +13,16 @@ namespace Cmpt.Tile.Tests
         int expectedVersionHeader = 1;
 
         [Test]
+        public void ReadTrafficCompositeTest()
+        {
+            var cmptfile = File.OpenRead(@"testfixtures/tile_0_14.cmpt");
+            Assert.IsTrue(cmptfile != null);
+            var cmpt = CmptReader.Read(cmptfile);
+            Assert.IsTrue(cmpt.Tiles.Count() == 2);
+        }
+
+
+        [Test]
         public void ReadFirstCompositeTest()
         {
             // arrange
