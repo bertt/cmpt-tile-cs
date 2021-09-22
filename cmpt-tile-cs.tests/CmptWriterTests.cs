@@ -29,8 +29,6 @@ namespace Cmpt.Tile.Tests
 
             // assert
             Assert.IsTrue(cmptBytes.Length > 0);
-
-            File.WriteAllBytes(@"D:\dev\github.com\cesium\3d-tiles-validator\validator\demo.cmpt", cmptBytes);
         }
     }
 }
