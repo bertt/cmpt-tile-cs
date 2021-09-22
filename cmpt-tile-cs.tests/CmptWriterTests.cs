@@ -1,6 +1,7 @@
 ﻿using I3dm.Tile;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.IO;
 using System.Numerics;
 
 namespace Cmpt.Tile.Tests
@@ -28,6 +29,8 @@ namespace Cmpt.Tile.Tests
 
             // assert
             Assert.IsTrue(cmptBytes.Length > 0);
+
+            File.WriteAllBytes(@"D:\dev\github.com\cesium\3d-tiles-validator\validator\demo.cmpt", cmptBytes);
         }
     }
 }

@@ -13,18 +13,24 @@ namespace Cmpt.Tile
 
             var header = new CmptHeader();
             header.TilesLength = tiles.Count();
-            header.ByteLength = 16 + tiles.Sum(i => i.Length);
-            var headerBytes = header.AsBinary();
-            var paddedHeaderBytes = BufferPadding.AddPadding(headerBytes);
 
-            binaryWriter.Write(paddedHeaderBytes);
-
+            var paddedTiles = new List<byte[]>();
             foreach (var tile in tiles)
             {
                 var tilePadded = BufferPadding.AddPadding(tile);
-
-                binaryWriter.Write(tilePadded);
+                paddedTiles.Add(tilePadded);
             }
+
+            header.ByteLength = 16 + paddedTiles.Sum(i => i.Length);
+            var headerBytes = header.AsBinary();
+
+            binaryWriter.Write(headerBytes);
+
+            foreach (var paddedTile in paddedTiles)
+            {
+                binaryWriter.Write(paddedTile);
+            }
+
             binaryWriter.Flush();
             binaryWriter.Close();
 
