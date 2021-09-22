@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Cmpt.Tile</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Authors>Bert Temme</Authors>
     <Description>Reading/Writing composite 3D Tiles</Description>
     <Copyright>Bert Temme</Copyright>
@@ -15,6 +15,8 @@
     <Product>cmpt-tile</Product>
     <PackageProjectUrl>https://github.com/bertt/cmpt-tile-cs</PackageProjectUrl>
     <AssemblyName>cmpt-tile</AssemblyName>
+    <AssemblyVersion>0.2.3.0</AssemblyVersion>
+    <FileVersion>0.2.3.0</FileVersion>
   </PropertyGroup>
 
 </Project>

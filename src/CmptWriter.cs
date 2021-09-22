@@ -23,8 +23,9 @@ namespace Cmpt.Tile
 
             header.ByteLength = 16 + paddedTiles.Sum(i => i.Length);
             var headerBytes = header.AsBinary();
+            var headerBytesPadded = BufferPadding.AddPadding(headerBytes);
 
-            binaryWriter.Write(headerBytes);
+            binaryWriter.Write(headerBytesPadded);
 
             foreach (var paddedTile in paddedTiles)
             {
