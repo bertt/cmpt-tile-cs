@@ -35,4 +35,6 @@ var cmptBytes = CmptWriter.Write(tiles);
 
 ## History
 
+2021-09022: Version 0.2.1 add padding rules
+
 2020-11-02: Initial version - reading composite tiles

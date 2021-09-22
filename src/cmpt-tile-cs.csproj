@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Cmpt.Tile</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2</Version>
+    <Version>0.2.1</Version>
     <Authors>Bert Temme</Authors>
     <Description>Reading/Writing composite 3D Tiles</Description>
     <Copyright>Bert Temme</Copyright>

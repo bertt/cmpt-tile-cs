@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -16,12 +15,15 @@ namespace Cmpt.Tile
             header.TilesLength = tiles.Count();
             header.ByteLength = 16 + tiles.Sum(i => i.Length);
             var headerBytes = header.AsBinary();
+            var paddedHeaderBytes = BufferPadding.AddPadding(headerBytes);
 
-            binaryWriter.Write(headerBytes);
+            binaryWriter.Write(paddedHeaderBytes);
 
             foreach (var tile in tiles)
             {
-                binaryWriter.Write(tile);
+                var tilePadded = BufferPadding.AddPadding(tile);
+
+                binaryWriter.Write(tilePadded);
             }
             binaryWriter.Flush();
             binaryWriter.Close();
