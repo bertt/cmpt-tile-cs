@@ -32,7 +32,6 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmptBytes.Length > 0);
         }
 
-
         [Test]
         public void MultipleInnertilesCmptWriterTest()
         {
@@ -69,5 +68,23 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.Tiles.Count() == 2);
         }
 
+        [Test]
+        public void WriteFromInnerTiles()
+        {
+            // arrange
+            var tile0 = File.ReadAllBytes(@"./testfixtures/inner/tile0.i3dm");
+            var tile1 = File.ReadAllBytes(@"./testfixtures/inner/tile1.i3dm");
+
+            var tiles = new List<byte[]>();
+            tiles.Add(tile0);
+            tiles.Add(tile1);
+            
+            // act
+            var cmptBytes = CmptWriter.Write(tiles);
+
+            // assert
+            var cmpt = CmptReader.Read(new MemoryStream(cmptBytes));
+            Assert.IsTrue(cmpt.Tiles.Count()==2);
+        }
     }
 }
