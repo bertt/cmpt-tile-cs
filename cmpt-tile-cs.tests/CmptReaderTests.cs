@@ -8,7 +8,6 @@ namespace Cmpt.Tile.Tests
 {
     public class CmptReaderTests
     {
-
         string expectedMagicHeader = "cmpt";
         int expectedVersionHeader = 1;
 
@@ -21,7 +20,6 @@ namespace Cmpt.Tile.Tests
             Assert.IsTrue(cmpt.Tiles.Count() == 5);
         }
 
-
         [Test]
         public void ReadTrafficCompositeTest()
         {
@@ -30,7 +28,6 @@ namespace Cmpt.Tile.Tests
             var cmpt = CmptReader.Read(cmptfile);
             Assert.IsTrue(cmpt.Tiles.Count() == 2);
         }
-
 
         [Test]
         public void ReadFirstCompositeTest()

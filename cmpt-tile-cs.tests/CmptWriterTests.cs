@@ -1,5 +1,6 @@
 ﻿using I3dm.Tile;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,37 @@ namespace Cmpt.Tile.Tests
 {
     public class CmptWriterTests
     {
+        [Test]
+        public void TestArgumentExceptionWhenNoInnertiles()
+        {
+            // arrange
+            var tiles = new List<byte[]>();
+
+            // assert, should throw argumentexception
+            Assert.Throws<ArgumentException>(() => CmptWriter.Write(tiles));
+        }
+
+
+        [Test]
+        public void TestArgumentExceptionWhenNot8byteAligned()
+        {
+            // arrange
+            var treeUrlGlb = "https://mymodels/tree.glb";
+            var pos1 = new Vector3(100, 101, 102);
+            var positions = new List<Vector3>() { pos1 };
+            var i3dm = new I3dm.Tile.I3dm(positions, treeUrlGlb);
+            var tiles = new List<byte[]>();
+            var tileBytes = I3dmWriter.Write(i3dm);
+            
+            // act
+            // make i3dm tile not 8 byte aligned
+            var wrongTile = tileBytes.SkipLast(1).ToArray();
+            tiles.Add(wrongTile);
+
+            // assert, should throw argumentexception
+            Assert.Throws<ArgumentException>(() => CmptWriter.Write(tiles));
+        }
+
         [Test]
         public void FirstCmptWriterTest()
         {

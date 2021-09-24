@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -8,6 +9,10 @@ namespace Cmpt.Tile
     {
         public static byte[] Write(IEnumerable<byte[]> tiles)
         {
+            if (!tiles.Any())
+            {
+                throw new ArgumentException("Inner tiles must be defined");
+            }
             var stream = new MemoryStream();
             var binaryWriter = new BinaryWriter(stream);
 
@@ -17,13 +22,19 @@ namespace Cmpt.Tile
             var paddedTiles = new List<byte[]>();
             foreach (var tile in tiles)
             {
-                var tilePadded = BufferPadding.AddPadding(tile);
+                // optional: we can do other checks here to validate inner tile
+                if(tile.Length % 8!= 0)
+                {
+                    throw new ArgumentException("Inner tile must be 8 byte aligned");
+
+                }
+                var tilePadded = tile;
                 paddedTiles.Add(tilePadded);
             }
 
             header.ByteLength = 16 + paddedTiles.Sum(i => i.Length);
             var headerBytes = header.AsBinary();
-            var headerBytesPadded = BufferPadding.AddPadding(headerBytes);
+            var headerBytesPadded = headerBytes;
 
             binaryWriter.Write(headerBytesPadded);
 
